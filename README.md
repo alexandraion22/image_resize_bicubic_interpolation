@@ -42,7 +42,7 @@ de cazul limita in care procesul cu rang-ul = size-1 trebuie sa ia mai multe lin
 Procesarea fiecarei bucati din imagine este realizata identic cu pasii din rezolvarea seriala, doar ca se realizeaza in paralel de catre N procese. La finalul procesarii, acestea trimit rezultatele inapoi la procesul MASTER (care proceseaza si el partea sa de imagine) si combina rezultatele primite in imaginea rezultat si o salveaza.
 
 ### MPI + Pthreads
-Aceasta paralelziare este efectiv varianta hibrida a rezolvarilor cu MPI si Pthreads separate. Am pornit de la rezolvarea ce utilizeaza doar MPI, cu aditia faptului ca fiecare proces va vrea M thread-uri, la fel ca in rezolvarea de Pthreads. 
+Aceasta paralelizare este efectiv varianta hibrida a rezolvarilor cu MPI si Pthreads separate. Am pornit de la rezolvarea ce utilizeaza doar MPI, cu aditia faptului ca fiecare proces va vrea M thread-uri, la fel ca in rezolvarea de Pthreads. 
 
 Imaginea este impartita mai intai la N procese, iar fiecare
 proces porneste M thread-uri care lucreaza simultan la cate o parte mica din bucata de imagine trimisa procesului. Astfel fiecare thread va lucra practic pe H/(M*N) linii din imagine.
